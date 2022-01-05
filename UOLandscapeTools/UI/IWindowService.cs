@@ -5,7 +5,8 @@ namespace UOLandscapeTools.UI
     public interface IWindowService
     {
         public IDockSpaceWindow DockSpaceWindow { get; }
+        public IToolsWindow ToolsWindow { get; }
 
-        
+
     }
 }

@@ -6,13 +6,16 @@ namespace UOLandscapeTools.UI
     {
 
         public IDockSpaceWindow DockSpaceWindow { get; }
+        public IToolsWindow ToolsWindow { get; }
         public WindowService(
 
-            IDockSpaceWindow dockSpaceWindow
+            IDockSpaceWindow dockSpaceWindow,
+            IToolsWindow toolsWindow
             )
         {
 
             DockSpaceWindow = dockSpaceWindow;
+            ToolsWindow = toolsWindow;
 
         }
     }

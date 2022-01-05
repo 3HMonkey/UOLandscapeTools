@@ -30,4 +30,7 @@
     <PackageReference Include="Monogame.Imgui.Renderer" Version="1.0.2" />
     <PackageReference Include="Serilog" Version="2.10.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UOLandscapeTools.Comp.GenerateBitmapTemplates\UOLandscapeTools.Components.GenerateBitmapTemplates.csproj" />
+  </ItemGroup>
 </Project>

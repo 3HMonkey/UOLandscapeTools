@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Monogame.Imgui.Renderer;
 using Serilog;
+using UOLandscapeTools.Components.GenerateBitmapTemplates;
 using UOLandscapeTools.UI;
 
 namespace UOLandscapeTools
@@ -12,19 +13,34 @@ namespace UOLandscapeTools
     {
         private readonly ILogger _logger;
         private readonly IWindowService _windowService;
+        private readonly IMapInfoProvider _mapInfoProvider;
         private ImGuiRenderer _imGuiRenderer;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
         public static uint MainDockspaceID = 0;
 
-        public MainGame(ILogger logger, IWindowService windowService)
+        public MainGame(ILogger logger, IWindowService windowService, IMapInfoProvider mapInfoProvider)
         {
             _logger = logger;
-            _windowService = windowService;
-            _graphics = new GraphicsDeviceManager(this);
+            _mapInfoProvider = mapInfoProvider;
+
+            Window.AllowUserResizing = true;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            
+            _windowService = windowService;
+            _graphics = new GraphicsDeviceManager(this)
+            {
+               
+                PreferMultiSampling = true,
+                IsFullScreen = false,
+                SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight,
+                GraphicsProfile = GraphicsProfile.HiDef,
+            };
+            
+            
         }
 
         protected override void Initialize()
@@ -33,6 +49,11 @@ namespace UOLandscapeTools
             _imGuiRenderer = new ImGuiRenderer(this);
             _imGuiRenderer.RebuildFontAtlas();
             ImGui.GetIO().ConfigFlags = ImGuiConfigFlags.DockingEnable;
+
+            // Workaround for window sizes
+            _graphics.PreferredBackBufferWidth = 1200;
+            _graphics.PreferredBackBufferHeight = 768;
+            _graphics.ApplyChanges();
             _logger.Information("Initializing renderer...Done");
             base.Initialize();
         }
@@ -80,6 +101,11 @@ namespace UOLandscapeTools
             if (_windowService.DockSpaceWindow.IsVisible)
             {
                 _windowService.DockSpaceWindow.Show(MainDockspaceID);
+            }
+            if (_windowService.ToolsWindow.IsVisible)
+            {
+                _windowService.ToolsWindow.Show(MainDockspaceID);
+                
             }
         }
     }
