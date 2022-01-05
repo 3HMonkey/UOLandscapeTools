@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32002.261
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOLandscapeTools", "UOLandscapeTools\UOLandscapeTools.csproj", "{599B738B-94BA-4532-8FC8-65FE8B71A405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UOLandscapeTools", "UOLandscapeTools\UOLandscapeTools.csproj", "{599B738B-94BA-4532-8FC8-65FE8B71A405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOLandscapeTools.Main", "UOLandscapeTools.Main\UOLandscapeTools.Main.csproj", "{A924B37C-B549-42A2-BD3B-91CDAFFD7265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{599B738B-94BA-4532-8FC8-65FE8B71A405}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{599B738B-94BA-4532-8FC8-65FE8B71A405}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{599B738B-94BA-4532-8FC8-65FE8B71A405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A924B37C-B549-42A2-BD3B-91CDAFFD7265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A924B37C-B549-42A2-BD3B-91CDAFFD7265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A924B37C-B549-42A2-BD3B-91CDAFFD7265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A924B37C-B549-42A2-BD3B-91CDAFFD7265}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

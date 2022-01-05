@@ -1,16 +1,23 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ImGuiNET;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Monogame.Imgui.Renderer;
+using Serilog;
 
 namespace UOLandscapeTools
 {
-    public class Game1 : Game
+    public class MainGame : Game
     {
+        private readonly ILogger _logger;
+        private ImGuiRenderer _imGuiRenderer;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public Game1()
+
+        public MainGame(ILogger logger)
         {
+            _logger = logger;
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
@@ -18,8 +25,11 @@ namespace UOLandscapeTools
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            _logger.Information("Initializing renderer...");
+            _imGuiRenderer = new ImGuiRenderer(this);
+            _imGuiRenderer.RebuildFontAtlas();
+            ImGui.GetIO().ConfigFlags = ImGuiConfigFlags.DockingEnable;
+            _logger.Information("Initializing renderer...Done");
             base.Initialize();
         }
 
@@ -44,8 +54,20 @@ namespace UOLandscapeTools
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            // =====================================
+            // Spritebatch
+            _spriteBatch.Begin();
+            
 
+            _spriteBatch.End();
+            // =====================================
+            // Imgui Renderer begin layout
+            _imGuiRenderer.BeforeLayout(gameTime);
+            // Imgui code
+            ImGui.Text("Test");
+            // Imgui Renderer end layout
+            _imGuiRenderer.AfterLayout();
+            // =====================================
             base.Draw(gameTime);
         }
     }
