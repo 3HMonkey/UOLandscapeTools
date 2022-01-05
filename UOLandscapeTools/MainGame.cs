@@ -4,20 +4,24 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Monogame.Imgui.Renderer;
 using Serilog;
+using UOLandscapeTools.UI;
 
 namespace UOLandscapeTools
 {
     public class MainGame : Game
     {
         private readonly ILogger _logger;
+        private readonly IWindowService _windowService;
         private ImGuiRenderer _imGuiRenderer;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        public static uint MainDockspaceID = 0;
 
-        public MainGame(ILogger logger)
+        public MainGame(ILogger logger, IWindowService windowService)
         {
             _logger = logger;
+            _windowService = windowService;
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
@@ -64,11 +68,19 @@ namespace UOLandscapeTools
             // Imgui Renderer begin layout
             _imGuiRenderer.BeforeLayout(gameTime);
             // Imgui code
-            ImGui.Text("Test");
+            ImGuiLayout();
             // Imgui Renderer end layout
             _imGuiRenderer.AfterLayout();
             // =====================================
             base.Draw(gameTime);
+        }
+
+        private void ImGuiLayout()
+        {
+            if (_windowService.DockSpaceWindow.IsVisible)
+            {
+                _windowService.DockSpaceWindow.Show(MainDockspaceID);
+            }
         }
     }
 }

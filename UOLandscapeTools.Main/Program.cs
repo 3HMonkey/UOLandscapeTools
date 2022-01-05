@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using UOLandscapeTools;
+using UOLandscapeTools.UI;
+using UOLandscapeTools.UI.Windows;
 
 internal class Program
 {
@@ -14,13 +16,15 @@ internal class Program
             .WriteTo.File("UOLandscapeTools.log", shared: true)
             .CreateLogger();
 
-
+        logger.Information("Registering internal services...");
         //==============================================================
         services.AddSingleton<ILogger>(logger);
+        services.AddSingleton<IDockSpaceWindow, DockSpaceWindow>();
+        services.AddSingleton<IWindowService, WindowService>();
         //services.AddSingleton<IAppSettingsProvider, AppSettingsProvider>();
         services.AddSingleton<MainGame>();
         //==============================================================
-
+        logger.Information("Registering internal services...Done!");
         //Environment.SetEnvironmentVariable("FNA_GRAPHICS_ENABLE_HIGHDPI", "1");
 
         var serviceProvider = services.BuildServiceProvider();
