@@ -1,5 +1,7 @@
 # UOLandscapeTools
 
+![example event parameter](https://github.com/3HMonkey/UOLandscapeTools/workflows/.NET%20Core/badge.svg?branch=main)
+
 UOLandscapeTools is a modern landscape tool stack for Ultima Online, inspired by DragonMod, UOLandscaper and Ultima Online Map Creator. Unfortunately these tools were a bit outdated and and prone to errors. creator tool for Ultima Online. This editor helps you to easily develop maps and content for your game. Furthermore there will be a toolset to convert between filetypes like UOP/MUL including full support for newer clients. 
 
 **AWARE: THIS IS ALPHA STAGE => NOT YET RUNNABLE AND/OR STABLE**
