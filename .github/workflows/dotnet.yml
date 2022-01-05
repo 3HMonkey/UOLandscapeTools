@@ -1,4 +1,4 @@
-name: .NET
+name: .NET Core
 
 on:
   push:
@@ -7,19 +7,52 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+###############################################################
+###############################################################
+# LINUX CONTAINER
+###############################################################
+###############################################################
+# This is needed to get all submodules. The process initializes
+# the submodules and upload them to a specified folder. The 
+# Windows container accesses this folder and downloads the content
+# to use it in build process  
+  get_submodules:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
+      #===========================================
+      - uses: actions/checkout@v2
+      #===========================================
+      - uses: textbook/git-checkout-submodule-action@2.1.1
+      #===========================================
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-whole-src
+          path: ./
+###############################################################
+###############################################################
+# WINDOWS CONTAINER
+###############################################################
+############################################################### 
+  build:
+    needs: [get_submodules]
+    runs-on: windows-latest
+    
+    steps:
+    #===========================================
+    - uses: actions/download-artifact@v2
+      with:
+        name: my-whole-src
+    #===========================================
+    - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
+    #===========================================
+    - name: Install dependencies
       run: dotnet restore
+    #===========================================
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Release --no-restore
+    #===========================================
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-restore --verbosity normal
