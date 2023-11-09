@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOLandscapeTools.Components
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOLandscapeTools.IO", "UOLandscapeTools.IO\UOLandscapeTools.IO.csproj", "{000EFA44-6FAB-4CC4-90ED-41F85462B3C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOLandscapeTools.Components.GenerateColorTable", "UOLandscapeTools.Components.GenerateColorTable\UOLandscapeTools.Components.GenerateColorTable.csproj", "{FF997CF4-75D0-453D-A67B-8E19E3D0A4D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{000EFA44-6FAB-4CC4-90ED-41F85462B3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{000EFA44-6FAB-4CC4-90ED-41F85462B3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{000EFA44-6FAB-4CC4-90ED-41F85462B3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF997CF4-75D0-453D-A67B-8E19E3D0A4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF997CF4-75D0-453D-A67B-8E19E3D0A4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF997CF4-75D0-453D-A67B-8E19E3D0A4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF997CF4-75D0-453D-A67B-8E19E3D0A4D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

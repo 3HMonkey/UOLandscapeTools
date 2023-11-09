@@ -2,6 +2,7 @@
 using Serilog;
 using UOLandscapeTools;
 using UOLandscapeTools.Components.GenerateBitmapTemplates;
+using UOLandscapeTools.Components.GenerateColorTable;
 using UOLandscapeTools.IO;
 using UOLandscapeTools.UI;
 using UOLandscapeTools.UI.Windows;
@@ -23,11 +24,17 @@ internal class Program
         services.AddSingleton<IJSONDataLoader, JSONDataLoader>();
         services.AddSingleton<IJSONDataSaver, JSONDataSaver>();
         //==============================================================
-        // Generate Bitmaps Component
+        // Register GenerateColotTable Component
+        services.AddSingleton<ITerrainColorMapProvider, TerrainColorMapProvider>();
+        // Register GenerateBitmapTemplates Component
+        services.AddSingleton<IGenerateBitmapTemplates, GenerateBitmapTemplates>();
         services.AddSingleton<IMapInfoProvider, MapInfoProvider>();
         //==============================================================
-        services.AddSingleton<IDockSpaceWindow, DockSpaceWindow>();
+        services.AddSingleton<IDockSpaceLeftWindow, DockSpaceLeftWindow>();
+        services.AddSingleton<IDockSpaceMainWindow, DockSpaceMainWindow>();
+        services.AddSingleton<IDebugWindow, DebugWindow>();
         services.AddSingleton<IToolsWindow, ToolsWindow>();
+        services.AddSingleton<IGenerateBitmapTemplatesWindow, GenerateBitmapTemplatesWindow>();
         services.AddSingleton<IWindowService, WindowService>();
         //services.AddSingleton<IAppSettingsProvider, AppSettingsProvider>();
         services.AddSingleton<MainGame>();

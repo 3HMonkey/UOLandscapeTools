@@ -1,23 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<ApplicationIcon>App.ico</ApplicationIcon>
+		<NoWin32Manifest>true</NoWin32Manifest>
+		
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="Serilog" Version="2.10.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
-    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="App.ico" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\UOLandscapeTools.Comp.GenerateBitmapTemplates\UOLandscapeTools.Components.GenerateBitmapTemplates.csproj" />
-    <ProjectReference Include="..\UOLandscapeTools.IO\UOLandscapeTools.IO.csproj" />
-    <ProjectReference Include="..\UOLandscapeTools\UOLandscapeTools.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+		<PackageReference Include="Serilog" Version="2.10.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\UOLandscapeTools.Comp.GenerateBitmapTemplates\UOLandscapeTools.Components.GenerateBitmapTemplates.csproj" />
+		<ProjectReference Include="..\UOLandscapeTools.Components.GenerateColorTable\UOLandscapeTools.Components.GenerateColorTable.csproj" />
+		<ProjectReference Include="..\UOLandscapeTools.IO\UOLandscapeTools.IO.csproj" />
+		<ProjectReference Include="..\UOLandscapeTools\UOLandscapeTools.csproj" />
+	</ItemGroup>
 
 </Project>

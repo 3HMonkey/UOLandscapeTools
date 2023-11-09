@@ -1,0 +1,115 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UOLandscapeTools.Components.GenerateColorTable.Models;
+
+namespace UOLandscapeTools.Components.GenerateColorTable
+{
+    internal class DefaultTerrainColorMap
+    {
+        public List<TerrainColorMapEntry> TerrainColorMap { get; private set; }
+
+        public DefaultTerrainColorMap()
+        {
+            TerrainColorMap = new List<TerrainColorMapEntry>()
+            {
+                new(){  Name = "Sink Hole" ,TileIds  = new[]{ 12541}, Color = new Color(40,70,40) ,Randomize = false},
+                new(){  Name = "Cave Wall" ,TileIds  = new[]{ 12130}, Color = new Color(100,102,102) ,Randomize = false},
+                new(){  Name = "Tree" ,TileIds  = new[]{ 11881}, Color = new Color(80,40,54) ,Randomize = false},
+                new(){  Name = "Acid" ,TileIds  = new[]{ 11818}, Color = new Color(60,80,101) ,Randomize = false},
+                new(){  Name = "Rough Beach" ,TileIds  = new[]{ 22}, Color = new Color(208,202,160) ,Randomize = true},
+                new(){  Name = "Rough Snow" ,TileIds  = new[]{ 282}, Color = new Color(185,185,185) ,Randomize = true},
+                new(){  Name = "Rough Forest" ,TileIds  = new[]{ 196}, Color = new Color(0,130,90) ,Randomize = true},
+                new(){  Name = "Rough Jungle" ,TileIds  = new[]{ 172}, Color = new Color(0,85,85) ,Randomize = true},
+                new(){  Name = "Rough Sand" ,TileIds  = new[]{ 22}, Color = new Color(200,191,51) ,Randomize = true},
+                new(){  Name = "Rough Grass" ,TileIds  = new[]{ 3}, Color = new Color(60,100,0) ,Randomize = true},
+                new(){  Name = "Dirt Embankment" ,TileIds  = new[]{ 117}, Color = new Color(110,100,80) ,Randomize = false},
+                new(){  Name = "Snow Embankment (Dark)" ,TileIds  = new[]{ 282}, Color = new Color(130,130,130) ,Randomize = false},
+                new(){  Name = "Grass Embankment (Dark)" ,TileIds  = new[]{ 3}, Color = new Color(0,80,0) ,Randomize = false},
+                new(){  Name = "Sand Embankment" ,TileIds  = new[]{ 22}, Color = new Color(187,151,21) ,Randomize = false},
+                new(){  Name = "Beach without Static" ,TileIds  = new[]{ 22}, Color = new Color(188,182,150) ,Randomize = false},
+                new(){  Name = "Beach" ,TileIds  = new[]{ 22}, Color = new Color(255,255,192) ,Randomize = false},
+                new(){  Name = "High Coast - Janice" ,TileIds  = new[]{ 26}, Color = new Color(0,0,200) ,Randomize = false},
+                new(){  Name = "Lava Depth" ,TileIds  = new[]{ 500}, Color = new Color(255,62,62) ,Randomize = false},
+                new(){  Name = "Dungeon Cave without Static" ,TileIds  = new[]{ 581}, Color = new Color(90,90,90) ,Randomize = false},
+                new(){  Name = "Mountain Cave Without Static" ,TileIds  = new[]{ 581}, Color = new Color(145,150,75) ,Randomize = false},
+                new(){  Name = "Goblin Forest Vyseky" ,TileIds  = new[]{ 196}, Color = new Color(35,60,75) ,Randomize = false},
+                new(){  Name = "Snow Without Static" ,TileIds  = new[]{ 282}, Color = new Color(235,235,180) ,Randomize = false},
+                new(){  Name = "Swamp Without Static" ,TileIds  = new[]{ 15849}, Color = new Color(40,235,190) ,Randomize = false},
+                new(){  Name = "Moss Without Static" ,TileIds  = new[]{ 15853}, Color = new Color(60,225,200) ,Randomize = false},
+                new(){  Name = "Jungle Without Static" ,TileIds  = new[]{ 172}, Color = new Color(100,150,107) ,Randomize = false},
+                new(){  Name = "Sand Without Static" ,TileIds  = new[]{ 22}, Color = new Color(245,240,100) ,Randomize = false},
+                new(){  Name = "Dark Forest" ,TileIds  = new[]{ 196}, Color = new Color(0,90,120) ,Randomize = false},
+                new(){  Name = "Yew Forest" ,TileIds  = new[]{ 196}, Color = new Color(0,90,110) ,Randomize = false},
+                new(){  Name = "Graveyard" ,TileIds  = new[]{ 117}, Color = new Color(128,128,128) ,Randomize = false},
+                new(){  Name = "Forest Without Static" ,TileIds  = new[]{ 196}, Color = new Color(100,100,100) ,Randomize = false},
+                new(){  Name = "Grass Without Static" ,TileIds  = new[]{ 3}, Color = new Color(0,200,0) ,Randomize = false},
+                new(){  Name = "Goblin Forest" ,TileIds  = new[]{ 196}, Color = new Color(0,140,90) ,Randomize = false},
+                new(){  Name = "Flagstone Brown" ,TileIds  = new[]{ 513}, Color = new Color(172,135,0) ,Randomize = false},
+                new(){  Name = "Red Tile" ,TileIds  = new[]{ 512}, Color = new Color(120,65,0) ,Randomize = false},
+                new(){  Name = "Dark Sandstone Brick (NS)" ,TileIds  = new[]{ 1106}, Color = new Color(255,242,132) ,Randomize = false},
+                new(){  Name = "Dark Sandstone Brick (EW)" ,TileIds  = new[]{ 1102}, Color = new Color(200,250,100) ,Randomize = false},
+                new(){  Name = "Sandstone Brick (EW)" ,TileIds  = new[]{ 1094}, Color = new Color(198,241,132) ,Randomize = false},
+                new(){  Name = "Cave Walls, Dungeon (NS)" ,TileIds  = new[]{ 602}, Color = new Color(110,0,0) ,Randomize = false},
+                new(){  Name = "Brown Brick (NS)" ,TileIds  = new[]{ 1171}, Color = new Color(153,26,0) ,Randomize = false},
+                new(){  Name = "Red Brick (EW)" ,TileIds  = new[]{ 1146}, Color = new Color(125,50,5) ,Randomize = false},
+                new(){  Name = "Grey Tile" ,TileIds  = new[]{ 16337}, Color = new Color(80,190,240) ,Randomize = false},
+                new(){  Name = "Medium Stone" ,TileIds  = new[]{ 1082}, Color = new Color(70,190,240) ,Randomize = false},
+                new(){  Name = "Moss" ,TileIds  = new[]{ 15853}, Color = new Color(60,190,240) ,Randomize = false},
+                new(){  Name = "Lavafalls West" ,TileIds  = new[]{ 500}, Color = new Color(255,60,0) ,Randomize = false},
+                new(){  Name = "Lavafalls North" ,TileIds  = new[]{ 500}, Color = new Color(255,50,0) ,Randomize = false},
+                new(){  Name = "Waterfalls West" ,TileIds  = new[]{ 168}, Color = new Color(0,130,255) ,Randomize = false},
+                new(){  Name = "Waterfalls North" ,TileIds  = new[]{ 168}, Color = new Color(0,120,255) ,Randomize = false},
+                new(){  Name = "Snow Embankment" ,TileIds  = new[]{ 282}, Color = new Color(150,150,150) ,Randomize = false},
+                new(){  Name = "Jungle Embankment" ,TileIds  = new[]{ 172}, Color = new Color(0,95,95) ,Randomize = false},
+                new(){  Name = "Forest Embankment" ,TileIds  = new[]{ 196}, Color = new Color(0,140,100) ,Randomize = false},
+                new(){  Name = "Grass Embankment" ,TileIds  = new[]{ 3}, Color = new Color(0,120,0) ,Randomize = false},
+                new(){  Name = "Swamp" ,TileIds  = new[]{ 15849}, Color = new Color(50,210,240) ,Randomize = false},
+                new(){  Name = "White Marble" ,TileIds  = new[]{ 1263}, Color = new Color(210,210,200) ,Randomize = false},
+                new(){  Name = "Flagstone Gray" ,TileIds  = new[]{ 1259}, Color = new Color(70,70,70) ,Randomize = false},
+                new(){  Name = "Dull Marble" ,TileIds  = new[]{ 1257}, Color = new Color(200,240,150) ,Randomize = false},
+                new(){  Name = "Green Marble" ,TileIds  = new[]{ 1255}, Color = new Color(0,60,0) ,Randomize = false},
+                new(){  Name = "Brown Brick (EW)" ,TileIds  = new[]{ 1167}, Color = new Color(100,0,0) ,Randomize = false},
+                new(){  Name = "Marble" ,TileIds  = new[]{ 1158}, Color = new Color(145,140,140) ,Randomize = false},
+                new(){  Name = "Red Brick (NS)" ,TileIds  = new[]{ 1146}, Color = new Color(125,0,0) ,Randomize = false},
+                new(){  Name = "Dark Sandstone Tile" ,TileIds  = new[]{ 1092}, Color = new Color(241,120,101) ,Randomize = false},
+                new(){  Name = "Light Sandstone Tile" ,TileIds  = new[]{ 1090}, Color = new Color(241,148,107) ,Randomize = false},
+                new(){  Name = "Sandstone Brick (NS)" ,TileIds  = new[]{ 1098}, Color = new Color(198,241,132) ,Randomize = false},
+                new(){  Name = "Dark Grey Stone" ,TileIds  = new[]{ 1086}, Color = new Color(74,74,57) ,Randomize = false},
+                new(){  Name = "Light Grey Stone" ,TileIds  = new[]{ 1078}, Color = new Color(110,107,99) ,Randomize = false},
+                new(){  Name = "Light Wooden Floor (NS)" ,TileIds  = new[]{ 1042}, Color = new Color(175,110,0) ,Randomize = false},
+                new(){  Name = "Light Wooden Floor (EW)" ,TileIds  = new[]{ 1038}, Color = new Color(175,100,0) ,Randomize = false},
+                new(){  Name = "Dark Wooden Floor (NS)" ,TileIds  = new[]{ 1034}, Color = new Color(120,90,0) ,Randomize = false},
+                new(){  Name = "Dark Wooden Floor (EW)" ,TileIds  = new[]{ 1030}, Color = new Color(120,80,0) ,Randomize = false},
+                new(){  Name = "Cobblestones" ,TileIds  = new[]{ 1001}, Color = new Color(50,45,45) ,Randomize = false},
+                new(){  Name = "Planks (WE)" ,TileIds  = new[]{ 662}, Color = new Color(109,71,62) ,Randomize = false},
+                new(){  Name = "Planks (NS)" ,TileIds  = new[]{ 663}, Color = new Color(94,64,57) ,Randomize = false},
+                new(){  Name = "Dungeon Cave" ,TileIds  = new[]{ 581}, Color = new Color(100,95,80) ,Randomize = false},
+                new(){  Name = "Mountain Cave" ,TileIds  = new[]{ 581}, Color = new Color(100,95,0) ,Randomize = false},
+                new(){  Name = "Blank" ,TileIds  = new[]{ 580}, Color = new Color(0,0,0) ,Randomize = false},
+                new(){  Name = "Rock" ,TileIds  = new[]{ 556}, Color = new Color(75,75,75) ,Randomize = true},
+                new(){  Name = "Blue Tile" ,TileIds  = new[]{ 528}, Color = new Color(0,60,95) ,Randomize = false},
+                new(){  Name = "Cave Entrance" ,TileIds  = new[]{ 580}, Color = new Color(206,174,123) ,Randomize = false},
+                new(){  Name = "Test Pattern" ,TileIds  = new[]{ 1078}, Color = new Color(110,107,109) ,Randomize = false},
+                new(){  Name = "Stars" ,TileIds  = new[]{ 506}, Color = new Color(75,75,100) ,Randomize = false},
+                new(){  Name = "Lava" ,TileIds  = new[]{ 500}, Color = new Color(255,0,0) ,Randomize = false},
+                new(){  Name = "Snow" ,TileIds  = new[]{ 282}, Color = new Color(255,255,255) ,Randomize = false},
+                new(){  Name = "Forest" ,TileIds  = new[]{ 196}, Color = new Color(0,110,90) ,Randomize = false},
+                new(){  Name = "Jungle" ,TileIds  = new[]{ 172}, Color = new Color(0,75,75) ,Randomize = false},
+                new(){  Name = "Water" ,TileIds  = new[]{ 168}, Color = new Color(0,110,255) ,Randomize = false},
+                new(){  Name = "Small Dirt" ,TileIds  = new[]{ 117}, Color = new Color(135,125,90) ,Randomize = false},
+                new(){  Name = "Large Dirt" ,TileIds  = new[]{ 113}, Color = new Color(120,110,90) ,Randomize = false},
+                new(){  Name = "Shallow Water" ,TileIds  = new[]{ 102}, Color = new Color(0,0,170) ,Randomize = false},
+                new(){  Name = "Deep Water" ,TileIds  = new[]{ 168}, Color = new Color(0,0,130) ,Randomize = false},
+                new(){  Name = "Sand" ,TileIds  = new[]{ 22}, Color = new Color(227,191,51) ,Randomize = false},
+                new(){  Name = "Furrows w" ,TileIds  = new[]{ 336}, Color = new Color(130,100,85) ,Randomize = false},
+                new(){  Name = "Furrows N" ,TileIds  = new[]{ 9}, Color = new Color(130,100,50) ,Randomize = false},
+                new(){  Name = "Grass" ,TileIds  = new[]{ 3}, Color = new Color(0,100,0) ,Randomize = false},
+                new(){  Name = "No Draw" ,TileIds  = new[]{ 2}, Color = new Color(50,65,75) ,Randomize = false},
+
+            };
+        }
+    }
+}

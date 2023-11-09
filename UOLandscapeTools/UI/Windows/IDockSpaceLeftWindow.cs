@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UOLandscapeTools.UI.Windows
 {
-    public interface IDockSpaceWindow : IWindow
+    public interface IDockSpaceLeftWindow : IWindow
     {
     }
 }

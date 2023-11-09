@@ -7,11 +7,14 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>App.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -32,5 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UOLandscapeTools.Comp.GenerateBitmapTemplates\UOLandscapeTools.Components.GenerateBitmapTemplates.csproj" />
+    <ProjectReference Include="..\UOLandscapeTools.Components.GenerateColorTable\UOLandscapeTools.Components.GenerateColorTable.csproj" />
   </ItemGroup>
 </Project>

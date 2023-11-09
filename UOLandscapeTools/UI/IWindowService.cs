@@ -4,8 +4,11 @@ namespace UOLandscapeTools.UI
 {
     public interface IWindowService
     {
-        public IDockSpaceWindow DockSpaceWindow { get; }
+        public IDockSpaceLeftWindow DockSpaceLeftWindow { get; }
+        public IDockSpaceMainWindow DockSpaceMainWindow { get; }
         public IToolsWindow ToolsWindow { get; }
+        public IDebugWindow DebugWindow { get; }
+        public IGenerateBitmapTemplatesWindow GenerateBitmapTemplatesWindow { get; }
 
 
     }

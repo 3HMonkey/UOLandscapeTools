@@ -5,17 +5,27 @@ namespace UOLandscapeTools.UI
     public sealed class WindowService : IWindowService
     {
 
-        public IDockSpaceWindow DockSpaceWindow { get; }
+        public IDockSpaceLeftWindow DockSpaceLeftWindow { get; }
+        public IDockSpaceMainWindow DockSpaceMainWindow { get; }
         public IToolsWindow ToolsWindow { get; }
+        public IDebugWindow DebugWindow { get; }
+        public IGenerateBitmapTemplatesWindow GenerateBitmapTemplatesWindow { get; }
+
         public WindowService(
 
-            IDockSpaceWindow dockSpaceWindow,
-            IToolsWindow toolsWindow
+            IDockSpaceLeftWindow dockSpaceLeftWindow,
+            IDockSpaceMainWindow dockSpaceMainWindow,
+            IToolsWindow toolsWindow,
+            IDebugWindow debugWindow,
+            IGenerateBitmapTemplatesWindow generateBitmapTemplatesWindow
             )
         {
 
-            DockSpaceWindow = dockSpaceWindow;
+            DockSpaceLeftWindow = dockSpaceLeftWindow;
+            DockSpaceMainWindow = dockSpaceMainWindow;
             ToolsWindow = toolsWindow;
+            DebugWindow = debugWindow;
+            GenerateBitmapTemplatesWindow = generateBitmapTemplatesWindow;
 
         }
     }

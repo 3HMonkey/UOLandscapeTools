@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using Monogame.Imgui.Renderer;
 using Serilog;
 using UOLandscapeTools.Components.GenerateBitmapTemplates;
+using UOLandscapeTools.Components.GenerateColorTable;
 using UOLandscapeTools.UI;
 
 namespace UOLandscapeTools
@@ -13,34 +14,37 @@ namespace UOLandscapeTools
     {
         private readonly ILogger _logger;
         private readonly IWindowService _windowService;
+        private readonly ITerrainColorMapProvider _terrainColorMapProvider;
         private readonly IMapInfoProvider _mapInfoProvider;
         private ImGuiRenderer _imGuiRenderer;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public static uint MainDockspaceID = 0;
+        public static uint LeftDockspaceID = 1;
+        public static uint ButtonDockspaceID = 2;
 
-        public MainGame(ILogger logger, IWindowService windowService, IMapInfoProvider mapInfoProvider)
+        public MainGame(ILogger logger, IWindowService windowService, IMapInfoProvider mapInfoProvider, ITerrainColorMapProvider terrainColorMapProvider)
         {
             _logger = logger;
             _mapInfoProvider = mapInfoProvider;
+            _terrainColorMapProvider = terrainColorMapProvider;
 
             Window.AllowUserResizing = true;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            
+
             _windowService = windowService;
             _graphics = new GraphicsDeviceManager(this)
             {
-               
+
                 PreferMultiSampling = true,
                 IsFullScreen = false,
                 SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight,
                 GraphicsProfile = GraphicsProfile.HiDef,
             };
-            
-            
+
+
         }
 
         protected override void Initialize()
@@ -82,7 +86,7 @@ namespace UOLandscapeTools
             // =====================================
             // Spritebatch
             _spriteBatch.Begin();
-            
+
 
             _spriteBatch.End();
             // =====================================
@@ -98,15 +102,45 @@ namespace UOLandscapeTools
 
         private void ImGuiLayout()
         {
-            if (_windowService.DockSpaceWindow.IsVisible)
+            if (ImGui.BeginMainMenuBar())
             {
-                _windowService.DockSpaceWindow.Show(MainDockspaceID);
+                if (ImGui.BeginMenu("Menu"))
+                {
+                    //if( ImGui.MenuItem("New", "Ctrl+N", false, true) ) NewProjectWindow.IsVisible = !NewProjectWindow.IsVisible;
+                    ImGui.EndMenu();
+                }
+
+                if (ImGui.BeginMenu("View"))
+                {
+                    if (ImGui.MenuItem("Tools", null, _windowService.ToolsWindow.IsVisible, true))
+                    {
+                        _windowService.ToolsWindow.ToggleVisibility();
+                    }
+                    
+                    ImGui.EndMenu();
+                }
+
+                ImGui.EndMainMenuBar();
+            }
+            if (_windowService.DockSpaceMainWindow.IsVisible)
+            {
+                _windowService.DockSpaceMainWindow.Show(ButtonDockspaceID);
+            }
+            if (_windowService.DockSpaceLeftWindow.IsVisible)
+            {
+                _windowService.DockSpaceLeftWindow.Show(LeftDockspaceID);
             }
             if (_windowService.ToolsWindow.IsVisible)
             {
-                _windowService.ToolsWindow.Show(MainDockspaceID);
-                
+                _windowService.ToolsWindow.Show(LeftDockspaceID);
+
             }
+            if (_windowService.GenerateBitmapTemplatesWindow.IsVisible)
+            {
+                _windowService.GenerateBitmapTemplatesWindow.Show(ButtonDockspaceID);
+
+            }
+
         }
     }
 }

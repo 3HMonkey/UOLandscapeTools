@@ -3,13 +3,13 @@ using Num = System.Numerics;
 
 namespace UOLandscapeTools.UI.Windows
 {
-    public sealed class DockSpaceWindow : Window, IDockSpaceWindow
+    public sealed class DockSpaceLeftWindow : Window, IDockSpaceLeftWindow
     {
         static bool _optFullscreen = true;
         static bool _optPadding = false;
         static ImGuiDockNodeFlags _dockspaceFlags = ImGuiDockNodeFlags.None;
 
-        public DockSpaceWindow()
+        public DockSpaceLeftWindow()
         {
             _isVisible = true;
         }
@@ -21,7 +21,8 @@ namespace UOLandscapeTools.UI.Windows
             {
                 var viewport = ImGui.GetMainViewport();
                 ImGui.SetNextWindowPos(viewport.WorkPos);
-                ImGui.SetNextWindowSize(viewport.WorkSize);
+                //ImGui.SetNextWindowSize(viewport.WorkSize);
+                ImGui.SetNextWindowSize(new Num.Vector2(200,viewport.WorkSize.Y));
                 ImGui.SetNextWindowViewport(viewport.ID);
                 ImGui.PushStyleVar(ImGuiStyleVar.WindowRounding, 0.0f);
                 ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0.0f);
@@ -65,8 +66,8 @@ namespace UOLandscapeTools.UI.Windows
             var io = ImGui.GetIO();
             if ((io.ConfigFlags & ImGuiConfigFlags.DockingEnable) == ImGuiConfigFlags.DockingEnable)
             {
-                var dockspaceId = ImGui.GetID("MyDockSpace");
-                ImGui.DockSpace(dockspaceId, new Num.Vector2(0.0f, 0.0f), _dockspaceFlags);
+                //var dockspaceId = ImGui.GetID("MyDockSpace");
+                ImGui.DockSpace(dockSpaceId, new Num.Vector2(0.0f, 0.0f), _dockspaceFlags);
             }
 
             return true;
