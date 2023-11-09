@@ -91,7 +91,7 @@ namespace UOLandscapeTools
             _spriteBatch.End();
             // =====================================
             // Imgui Renderer begin layout
-            _imGuiRenderer.BeforeLayout(gameTime);
+            _imGuiRenderer.BeforeLayout(this, gameTime);
             // Imgui code
             ImGuiLayout();
             // Imgui Renderer end layout
